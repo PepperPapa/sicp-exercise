@@ -1,0 +1,21 @@
+#lang racket
+(define (parallel-execute . thunks)
+  (for-each thread thunks))
+
+(define x 10)
+
+(parallel-execute (lambda () (set! x (* x x)))
+                  (lambda () (set! x (+ x 1))))
+(display x)
+(newline)
+(display x)
+(newline)
+(display x)
+(newline)
+(display x)
+(newline)
+(display x)
+(newline)
+(display x)
+(newline)
+(display x)

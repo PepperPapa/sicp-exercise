@@ -1,0 +1,52 @@
+#lang sicp
+
+(define (square x) (* x x))
+
+(define (expt b n)  
+  (cond ((= n 0) 1)
+        (else
+         (display '+)
+         (* b (expt b (- n 1))))))
+                
+(define (fast-expt b n)
+  (cond ((= n 0) 1)
+        ((even? n)
+         (display '+)
+         (square (fast-expt b (/ n 2))))
+        (else
+         (display '+)
+         (* b (fast-expt b (- n 1))))))
+
+(define (new-expt b n)
+  (define (fast-expt-iter b n a)
+    (cond ((< n 1) a)
+          ((even? n)
+           (display '+)
+           (fast-expt-iter (square b) (/ n 2) a))
+          (else
+           (display '+)
+           (fast-expt-iter (square b) (/ (- n 1) 2) (* a b)))))
+  (fast-expt-iter b n 1))
+
+(new-expt 2 0)
+(expt 2 0)
+(new-expt 2 1)
+(expt 2 1)
+(new-expt 2 2)
+(expt 2 2)
+(new-expt 2 3)
+(expt 2 3)
+(new-expt 2 4)
+(expt 2 4)
+(new-expt 2 5)
+(expt 2 5)
+(new-expt 2 6)
+(expt 2 6)
+(new-expt 2 7)
+(expt 2 7)
+(new-expt 2 8)
+(expt 2 8)
+(new-expt 2 9)
+(expt 2 9)
+(new-expt 2 10)
+(expt 2 10)

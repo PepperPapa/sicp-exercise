@@ -1,0 +1,30 @@
+#lang racket
+;;迭代方式计算斐波那契数列
+(define (fib n)
+  (fib-iter 1 0 n))
+
+(define (fib-iter a b n)
+  (if (= 0 n)
+      b
+      (fib-iter (+ a b) a (- n 1))))
+
+(display 'fib0:)
+(fib 0)
+(display 'fib1:)
+(fib 1)
+(display 'fib2:)
+(fib 2)
+(display 'fib3:)
+(fib 3)
+(display 'fib4:)
+(fib 4)
+(display 'fib5:)
+(fib 5)
+(display 'fib5:)
+(fib 5)
+(display 'fib6:)
+(fib 6)
+(display 'fib7:)
+(fib 7)
+(display 'fib100:)
+(fib 100)
