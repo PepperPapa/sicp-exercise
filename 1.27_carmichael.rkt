@@ -11,18 +11,26 @@
          (remainder (* base (expmod base (- exp 1) m))
                     m))))
 
-(define (fermat-test n)
+(define (fermat-test n a)
   (define (try-it a)
     (= (expmod a n n) a))
-  (try-it (+ 1 (random (- n 1)))))
+  (try-it a))
 
-(define (fast-prime? n times)
-  (cond ((= times 0) #t)
-        ((fermat-test n)
-         (fast-prime? n (- times 1)))
-        (else
-         #f)))
+(define (carmichael-test? n)
+  (define (carmichael-iter n times)
+    (cond ((= times 0) #t)
+          ((fermat-test n times)
+           ;(display times)
+           ;(display " ")
+           (carmichael-iter n (- times 1)))
+          (else
+           #f)))
+  (carmichael-iter n (- n 1)))
 
-(define (carmichael-test n)
-    
-)
+;;test code
+(carmichael-test? 561)
+(carmichael-test? 1105)
+(carmichael-test? 1729)
+(carmichael-test? 2465)
+(carmichael-test? 2821)
+(carmichael-test? 6601)
