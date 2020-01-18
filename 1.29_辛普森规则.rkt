@@ -23,7 +23,7 @@
   (* (/ h 3)
      (sum term 0.0 inc n)))
 
-;;; (define (integral f a b n)
+;;; (define (simpson f a b n)
 ;;;   (let ((h (/ (- b a) n)))
 ;;;     (define (sum-iter k)
 ;;;       (cond ((= k 0)

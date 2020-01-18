@@ -1,9 +1,11 @@
 #lang racket
 
+(provide inc)
 (provide square)
 (provide cube)
 (provide expt)
 
+(define (inc n) (+ n 1))
 (define (square x) (* x x))
 (define (cube x) (* x (* x x)))
 (define (expt b n)
