@@ -1,7 +1,6 @@
 #lang racket
 (require "math.rkt")
 
-(define (identity x) x)
 (define (sum term a next b)
   (define (iter a result)
     (if (> a b)

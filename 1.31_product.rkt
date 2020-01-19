@@ -14,11 +14,8 @@
         (iter (next a) (* result (term a)))))
   (iter a 1))
 
-(define (identity x) x)
-
 (define (factorial n)
   (product-iter identity 1 inc n))
-
 
 (define (get-pi times)
   (define (term n)

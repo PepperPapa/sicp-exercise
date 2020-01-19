@@ -1,10 +1,12 @@
 #lang racket
 
+(provide identity)
 (provide inc)
 (provide square)
 (provide cube)
 (provide expt)
 
+(define (identity x) x)
 (define (inc n) (+ n 1))
 (define (square x) (* x x))
 (define (cube x) (* x (* x x)))
