@@ -1,5 +1,7 @@
 #lang racket
 
+(provide cont-frac)
+
 (define (cont-frac n d k)
   (define (iter i)
     (if (= k i)
