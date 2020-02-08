@@ -1,4 +1,5 @@
 #lang racket
+(require "math.rkt")
 
 (define dx 0.00001)
 
@@ -22,7 +23,7 @@
        3)))
 
 (define (smooth-n-times f n)
-  (repeated (smooth f) n))
+  ((repeated smooth n) f))
 
 ;; test case
 ((smooth sin) 0)
@@ -31,9 +32,9 @@
 ((smooth sin) 6)
 ((smooth sin) 8)
 
-((smooth-n-times sin 20) 0)
-((smooth-n-times sin 20) 2)
-((smooth-n-times sin 20) 4)
-((smooth-n-times sin 20) 6)
-((smooth-n-times sin 20) 8)
+((smooth-n-times sin 5) 0)
+((smooth-n-times sin 5) 2)
+((smooth-n-times sin 5) 4)
+((smooth-n-times sin 5) 6)
+((smooth-n-times sin 5) 8)
 

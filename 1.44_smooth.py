@@ -2,7 +2,7 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-dx = 0.00001
+dx = 0.2
 
 def compose(f, g):
     def c(x):
@@ -23,7 +23,7 @@ def smooth(f):
     return sf
 
 def smooth_n_times(f, n):
-    return repeated(smooth(f), n)
+    return repeated(smooth, n)(f)
 
 x = np.arange(0,  3  * np.pi,  0.1) 
 y_sin = np.sin(x) 
@@ -31,3 +31,13 @@ y_cos = smooth_n_times(np.sin, 10)(x)
 plt.plot(x, y_sin, 
          x, y_cos, "+") 
 plt.show()
+
+# def f(x):
+#     return x**2
+
+# x = np.arange(-20, 20, 1) 
+# y1 = f(x)
+# y2 = smooth_n_times(f, 10)(x)  
+# plt.plot(x, y1, 
+#          x, y2, "+") 
+# plt.show()
