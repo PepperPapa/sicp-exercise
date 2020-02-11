@@ -19,9 +19,9 @@
   (define (fast-expt-iter b n a)
     (cond ((< n 1) a)
           ((even? n)
-           (display '+)
+           ;(display '+)
            (fast-expt-iter (square b) (/ n 2) a))
           (else
-           (display '+)
+           ;(display '+)
            (fast-expt-iter (square b) (/ (- n 1) 2) (* a b)))))
   (fast-expt-iter b n 1))
